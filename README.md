@@ -10,13 +10,13 @@ This Python script, part of our ongoing 'Data Analysis Series' scrapes product d
 - Includes error handling for robust scraping.
 - Limits the number of products scraped to avoid rate-limiting issues.
 
-## Requirements
+### Requirements
 
 - Python 3.6+
 - Required libraries: `pip install requests beautifulsoup4`
 - A stable internet connection to access Amazon India.
 
-## Installation
+### Installation
 
 - Clone or download this repository to your local machine.
 - Navigate to the project directory:cd path/to/your/project
@@ -29,7 +29,7 @@ This Python script, part of our ongoing 'Data Analysis Series' scrapes product d
 - Adjust max_pages (default: 2) or max_products (default: 30) in the scrape_amazon function to control the number of search result pages or products scraped.
 
 
-## Run the Script
+### Run the Script
 Open a terminal in VS Code or your preferred command-line tool.
 Navigate to the project directory:cd C:\Users\hp\python programming journey
 Run the script: `python AmazonWebscraping.py`
@@ -41,18 +41,13 @@ Run the script: `python AmazonWebscraping.py`
 - Save results to amazon_products.csv in the project directory.
 
 
-## Check the Output
+### Check the Output
 The script generates amazon_products.csv in C:\Users\hp\python programming journey.
 Open the CSV in:
 VS Code: Double-click amazon_products.csv in the File Explorer. Install the Rainbow CSV or Excel Viewer extension for better formatting.
 Excel: Double-click the file in File Explorer to open it as a spreadsheet.
 Google Sheets: Upload the file to Google Drive and open with Google Sheets.
 
-
-## Verify the CSV contains
-Headers: asin, url, title, price, currency, rating, rating_count, availability, bullets, description, image_urls, timestamp.
-Up to 31 rows (1 single product + up to 30 search results).
-Check for missing fields (e.g., empty title or price) to identify scraping issues.
 
 
 ## Dataset Schema
@@ -103,5 +98,6 @@ This project is for educational purposes. Ensure compliance with Amazon’s term
 Feel free to submit issues or pull requests for improvements, such as adding new fields, handling more edge cases, or visualizing scraped data.
 
 ## Author
-Made by Hashir khan
+
+Made by Hashir khan   
 Feel free to ⭐ the repo if you found it helpful!
