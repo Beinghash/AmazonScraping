@@ -1,28 +1,29 @@
 # Amazon Web Scraper
 
-This Python script scrapes product data from Amazon India (https://www.amazon.in) for a given keyword or a specific product URL and saves the results to a CSV file (amazon_products.csv). The script collects details such as product title, price, rating, reviews, availability, features, description, ASIN, image URLs, and timestamp.
-Features
+This Python script, part of our ongoing 'Data Analysis Series' scrapes product data from Amazon India (https://www.amazon.in) for a given keyword or a specific product URL and saves the results to a CSV file (amazon_products.csv). The script collects details such as product title, price, rating, reviews, availability, features, description, ASIN, image URLs, and timestamp.
 
-Scrapes product details from Amazon India search results or a single product page.
-Handles retries for failed requests and detects CAPTCHAs.
-Saves scraped data to a CSV file with proper formatting.
-Includes error handling for robust scraping.
-Limits the number of products scraped to avoid rate-limiting issues.
+## Features
+
+- Scrapes product details from Amazon India search results or a single product page.
+- Handles retries for failed requests and detects CAPTCHAs.
+- Saves scraped data to a CSV file with proper formatting.
+- Includes error handling for robust scraping.
+- Limits the number of products scraped to avoid rate-limiting issues.
 
 ## Requirements
 
 - Python 3.6+
-- Required libraries: pip install requests beautifulsoup4
+- Required libraries: `pip install requests beautifulsoup4`
 - A stable internet connection to access Amazon India.
 
 ## Installation
 
 - Clone or download this repository to your local machine.
 - Navigate to the project directory:cd path/to/your/project
-- Install the required Python libraries: pip install requests beautifulsoup4
+- Install the required Python libraries: `pip install requests beautifulsoup4`
 - Ensure your project directory has write permissions to create the output CSV file.
 
-Usage
+### Usage
 - Open AmazonWebscraping.py in a text editor (e.g., VS Code).
 - Modify the keyword (e.g., "data analyst t shirts") or single_url in the if __name__ == '__main__': block to scrape different products.
 - Adjust max_pages (default: 2) or max_products (default: 30) in the scrape_amazon function to control the number of search result pages or products scraped.
@@ -34,10 +35,10 @@ Navigate to the project directory:cd C:\Users\hp\python programming journey
 Run the script: `python AmazonWebscraping.py`
 
 
-## The script will:
-Scrape a single product (default: https://www.amazon.in/Seek-Buy-Love-Spreadsheet-Accountant/dp/B0CZJ82YT1).
-Search for products matching the keyword (default: "data analyst t shirts") and scrape up to 30 products across 2 pages.
-Save results to amazon_products.csv in the project directory.
+## Working
+- Scrape a single product (default: https://www.amazon.in/Seek-Buy-Love-Spreadsheet-Accountant/dp/B0CZJ82YT1).
+- Search for products matching the keyword (default: "data analyst t shirts") and scrape up to 30 products across 2 pages.
+- Save results to amazon_products.csv in the project directory.
 
 
 ## Check the Output
@@ -54,21 +55,24 @@ Up to 31 rows (1 single product + up to 30 search results).
 Check for missing fields (e.g., empty title or price) to identify scraping issues.
 
 
-## Output
+## Dataset Schema
 The script produces amazon_products.csv with the following columns:
 
-asin: Amazon Standard Identification Number.
-url: Product page URL.
-title: Product title.
-price: Product price in INR.
-currency: Currency (fixed as INR).
-rating: Star rating (e.g., 4.3).
-rating_count: Number of customer reviews.
-availability: Stock status (e.g., "In stock").
-bullets: Product features (bullet points, joined by |).
-description: Product description (truncated to 2000 characters).
-image_urls: Up to 5 product image URLs (joined by ;).
-timestamp: UTC timestamp of when the data was scraped.
+| Column Name   | Description                                                                 |
+|---------------|-----------------------------------------------------------------------------|
+| **asin**      | Amazon Standard Identification Number.                                      |
+| **url**       | Product page URL.                                                           |
+| **title**     | Product title.                                                              |
+| **price**     | Product price in INR.                                                       |
+| **currency**  | Currency (fixed as INR).                                                    |
+| **rating**    | Star rating (e.g., 4.3).                                                    |
+| **rating_count** | Number of customer reviews.                                              |
+| **availability** | Stock status (e.g., "In stock").                                         |
+| **bullets**   | Product features (bullet points, joined by `|`).                            |
+| **description** | Product description (truncated to 2000 characters).                       |
+| **image_urls** | Up to 5 product image URLs (joined by `;`).                                |
+| **timestamp** | UTC timestamp of when the data was scraped.                                 |
+
 
 ## Troubleshooting
 - CSV File Not Found:
@@ -79,12 +83,6 @@ timestamp: UTC timestamp of when the data was scraped.
 If the CSV has fewer rows than expected, check the terminal output for errors (e.g., "Could not scrape" or "CAPTCHA detected").
 Increase sleep times in find_product_urls or scrape_amazon (e.g., random.uniform(8.0, 12.0)) to avoid CAPTCHAs.
 Verify selectors in get_product_title, get_product_price, etc., match Amazon’s current HTML structure.
-
-
-## CAPTCHA Detected
-Amazon may block requests if scraping is too frequent. Increase sleep times or reduce max_pages/max_products.
-Consider using a proxy or headless browser (e.g., Selenium) for advanced use cases.
-
 
 
 ## Example Output
@@ -100,6 +98,10 @@ The resulting amazon_products.csv contains up to 31 rows (1 single product + up 
 
 ## License
 This project is for educational purposes. Ensure compliance with Amazon’s terms of service when scraping.
-Contributing
 
+## Contributing
 Feel free to submit issues or pull requests for improvements, such as adding new fields, handling more edge cases, or visualizing scraped data.
+
+## Author
+Made by Hashir khan
+Feel free to ⭐ the repo if you found it helpful!
